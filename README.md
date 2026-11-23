@@ -307,3 +307,15 @@ This project provided practical experience with:
 - Kubernetes Horizontal Pod Autoscaling.
 - Helm-based installation of monitoring tools.
 - Prometheus
+
+
+## Application Screenshots
+
+### Shipment Management Homepage
+![Shipment Homepage](docs/images/shipment-homepage-1.png)
+
+### Grafana Dashboard
+![Grafana Dashboard](docs/images/grafana-dashboard.png)
+
+### Kubernetes HPA Scaling
+![HPA Scaling](docs/images/hpa-scaling.png)
