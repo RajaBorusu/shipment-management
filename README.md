@@ -317,5 +317,3 @@ This project provided practical experience with:
 ### Grafana Dashboard
 ![Grafana Dashboard](docs/images/grafana-dashboard.png)
 
-### Kubernetes HPA Scaling
-![HPA Scaling](docs/images/hpa-scaling.png)
