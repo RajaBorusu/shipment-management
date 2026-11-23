@@ -1,0 +1,60 @@
+
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: shipment-management
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: shipment-management
+
+  template:
+    metadata:
+      labels:
+        app: shipment-management
+
+    spec:
+      containers:
+
+        - name: shipment-management
+
+          image: 976193256677.dkr.ecr.ap-south-1.amazonaws.com/shipment-management-repo:v4
+          
+
+          startupProbe:
+            httpGet:
+              path: /actuator/health/liveness
+              port: 8080
+            periodSeconds: 10
+            failureThreshold: 30
+
+          readinessProbe:
+            httpGet:
+              path: /actuator/health/readiness
+              port: 8080
+            periodSeconds: 10
+            failureThreshold: 3
+
+          livenessProbe:
+            httpGet:
+              path: /actuator/health/liveness
+              port: 8080
+            periodSeconds: 20
+            failureThreshold: 3
+
+          ports:
+            - containerPort: 8080
+
+          imagePullPolicy: Always
+
+          resources:
+            requests:
+              cpu: "250m"
+              memory: "512Mi"
+            limits:
+              cpu: "1"
+              memory: "1Gi"
